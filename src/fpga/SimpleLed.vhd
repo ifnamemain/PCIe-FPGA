@@ -23,12 +23,20 @@ architecture arch of SimpleLed_top is
 begin
 
     ledCounter: process(clk)
-    variable counter: unsigned(3 downto 0) := (others => '0');
+    variable counter: unsigned(31 downto 0) := (others => '0');
+    variable slowCounter: unsigned(3 downto 0) := (others => '0');
+    constant incrementSlowCounter: positive := 100000000; --when counter hits this number, increment slowCounter by 1.  Means 1 second has passed since I'm  using 100MHz clock
     begin
-        if (clk = '1') then
-            counter := counter + 1;
+        if (rising_edge(clk)) then
+            if (counter = unsigned(incrementSlowCounter)) then 
+                counter = 0;
+            else
+                counter := counter + 1;
+            end if;
+            if (counter = 0) then
+                slowCounter := slowCounter + 1;            
         end if;
-        leds <= counter;
+        leds <= not std_logic_vector(slowCounter);
     end process ledCounter;
 
 end arch;
