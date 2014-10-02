@@ -21,17 +21,18 @@ end entity ; -- SimpleLed_top
 
 architecture arch of SimpleLED is
 
+signal q: unsigned(31 downto 0) := (others => '0');
+signal reducedClk : std_logic := '0';
+    
 begin
 
-    clkDiv  : process(clk) --The nth bit of q should flip at the rate clk/(2^(n+1))
-    signal q: std_logic_vector(31 downto 0) := (others => '0');
-    signal reducedClk : bit
+    clkDiv  : process(clk,q) --The nth bit of q should flip at the rate clk/(2^(n+1))
     begin
         if (rising_edge(clk)) then 
             q <= q + 1;
-        endif;
+        end if;
     reducedClk <= q(26); -- reducedClk should run at 100/134ish Hz if clk is 100MHz
-    end process;
+    end process clkDiv;
 
     ledCounter: process(reducedClk)  
     variable counter: unsigned(3 downto 0) := (others => '0');
@@ -39,7 +40,7 @@ begin
         if (rising_edge(reducedClk)) then
             counter := counter + 1;
         end if;
-        leds <= not counter;
+        leds <= not std_logic_vector(counter);
     end process ledCounter;
 
 end arch;
