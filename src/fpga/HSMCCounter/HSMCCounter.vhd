@@ -8,16 +8,16 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use IEEE.STD_LOGIC_MISC.ALL;
 
-entity SimpleLED is
+entity HSMCCounter is
 	port (
 		clkSelect: in std_logic;  -- push button to select reducedClk speed USER_PB1
 		clk : in std_logic; -- ???MHz clock
 		leds : out std_logic_vector(3 downto 0) --leds for status	
 	);
 
-end entity ; -- SimpleLed_top
+end entity ; -- HSMCCounter
 
-architecture arch of SimpleLED is
+architecture arch of HSMCCounter is
 
 signal q: unsigned(31 downto 0) := (others => '0');
 signal reducedClk : std_logic := '0';
