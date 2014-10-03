@@ -11,7 +11,7 @@ use IEEE.STD_LOGIC_MISC.ALL;
 entity HSMCCounter is
 	port (
 		restetn: in std_logic;  -- push button to select reducedClk speed USER_PB1
-		clk : in std_logic; -- ???MHz clock
+		clk : in std_logic; -- 100MHz clock
 		leds : out std_logic_vector(3 downto 0); --leds for status	
 		
 		--HSMC Lines for Masking the LEDs
