@@ -56,10 +56,17 @@ set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_location_assignment PIN_AJ19 -to clk
 set_instance_assignment -name IO_STANDARD LVDS -to clk
 set_location_assignment PIN_AK19 -to "clk(n)"
-set_location_assignment PIN_AL7 -to clkSelect
-set_instance_assignment -name IO_STANDARD "1.2 V" -to clkSelect
 set_location_assignment PIN_R5 -to leds[3]
 set_location_assignment PIN_J5 -to leds[2]
 set_location_assignment PIN_J4 -to leds[1]
 set_location_assignment PIN_G1 -to leds[0]
+set_location_assignment PIN_AA7 -to pulseInputs[0]
+set_location_assignment PIN_V2 -to pulseInputs[1]
+set_location_assignment PIN_Y6 -to pulseInputs[2]
+set_location_assignment PIN_V1 -to pulseInputs[3]
+set_location_assignment PIN_AL7 -to restetn
+set_instance_assignment -name IO_STANDARD "1.8 V" -to pulseInputs[3]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to pulseInputs[2]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to pulseInputs[1]
+set_instance_assignment -name IO_STANDARD "1.8 V" -to pulseInputs[0]
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
