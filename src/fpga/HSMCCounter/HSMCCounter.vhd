@@ -39,9 +39,11 @@ begin
 	 variable currentState : std_logic_vector(3 downto 0) := (others => '0');
     begin
 			if (rising_edge(reducedClk)) then
-				currentState := currentState xor pulseInputs; --Make the led state toggle on and off with reducedClk. Is this doing bitwise xoring?
+				currentState := currentState xor pulseInputs; --Make the led state toggle on and off with reducedClk.
 			end if;	
-			leds <= not currentState;
+			leds <= pulseInputs;
     end process ledMask;
+	 
+	 
 
 end arch;
