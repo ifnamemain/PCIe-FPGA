@@ -32,7 +32,7 @@ begin
         if (rising_edge(clk)) then 
             q <= q + 1;
         end if;
-	 reducedClk <= q(27); --reducedClk is running at the rate clk/2^28
+	 reducedClk <= q(24); --reducedClk is running at the rate clk/2^28
     end process clkDiv;
 
     ledMask: process(reducedClk,pulseInputs)
