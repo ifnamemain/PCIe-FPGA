@@ -23,6 +23,7 @@ signal q: unsigned(31 downto 0) := (others => '0');
 signal reducedClk : std_logic := '0';
     
 begin
+<<<<<<< HEAD
     clkDiv  : process(clk) --The nth bit of q should flip at the rate clk/(2^(n+1))
     variable counter: unsigned(1 downto 0) := (others => '0');
 	 begin
@@ -40,8 +41,25 @@ begin
 	     reducedClk <= q(25 - to_integer(counter));
 	 end process selectClk; 
     
+=======
+    clkDiv  : process(clkSelect,clk,q) --The nth bit of q should flip at the rate clk/(2^(n+1))
+    begin
+        if (rising_edge(clk)) then 
+            q <= q + 1;
+        end if;
+    end process clkDiv;
+
+    selectClk : process(clkSelect)
+    variable counter: unsigned(1 downto 0) := (others => '0');
+        if (rising_edge(clkSelect)) then
+            counter := counter + 1;
+        end if;
+        reducedClk <= q(25 - to_integer(counter));
+    end process selectClk 
+
+>>>>>>> 1eb80b1d6019613d3a21b0a6eabc17ac209f4d4b
     ledCounter: process(reducedClk)
-	 variable counter : unsigned(3 downto 0) := (others => '0');
+    variable counter : unsigned(3 downto 0) := (others => '0');
     begin
         if (rising_edge(reducedClk)) then    
             counter := counter + 1;
