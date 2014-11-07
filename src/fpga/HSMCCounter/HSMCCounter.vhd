@@ -11,7 +11,7 @@ use IEEE.STD_LOGIC_MISC.ALL;
 entity HSMCCounter is
 	port (
 		restetn: in std_logic;  -- push button to select reducedClk speed USER_PB1
-		clk : in std_logic; -- ???MHz clock
+		clk : in std_logic; -- 100MHz clock
 		leds : out std_logic_vector(3 downto 0); --leds for status	
 		
 		--HSMC Lines for Masking the LEDs
@@ -39,9 +39,9 @@ begin
 	 variable currentState : std_logic_vector(3 downto 0) := (others => '0');
     begin
 			if (rising_edge(reducedClk)) then
-				currentState := currentState xor pulseInputs; --Make the led state toggle on and off with reducedClk.
+				currentState := currentState xor not pulseInputs; --Make the led state toggle on and off with reducedClk. Unused pulseInputs are high when nothing connect so I not them to get the LEDs to do what I want
 			end if;	
-			leds <= pulseInputs;
+			leds <= not currentState;
     end process ledMask;
 	 
 	 
