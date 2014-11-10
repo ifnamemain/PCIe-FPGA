@@ -39,7 +39,7 @@ begin
 end process ; -- capture
 
 --Process to reset
-clrProc : process( sysclk )
+clrProc : process(sysclk)
 begin
 	if rising_edge(sysclk) then
 		if clr = '1' then

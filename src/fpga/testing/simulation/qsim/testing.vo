@@ -1,0 +1,1478 @@
+// Copyright (C) 1991-2014 Altera Corporation. All rights reserved.
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, the Altera Quartus II License Agreement,
+// the Altera MegaCore Function License Agreement, or other 
+// applicable license agreement, including, without limitation, 
+// that your use is for the sole purpose of programming logic 
+// devices manufactured by Altera and sold by Altera or its 
+// authorized distributors.  Please refer to the applicable 
+// agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus II 64-Bit"
+// VERSION "Version 14.0.0 Build 200 06/17/2014 SJ Web Edition"
+
+// DATE "11/10/2014 16:42:11"
+
+// 
+// Device: Altera EP4CGX15BF14C6 Package FBGA169
+// 
+
+// 
+// This Verilog file should be used for ModelSim-Altera (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module testing_top (
+	clk,
+	pulse,
+	control,
+	cnt,
+	pulseFOut,
+	clearOut,
+	idleCnt,
+	captureCnt,
+	latchCnt,
+	clrCnt);
+input 	clk;
+input 	pulse;
+input 	control;
+output 	[3:0] cnt;
+output 	pulseFOut;
+output 	clearOut;
+output 	[3:0] idleCnt;
+output 	[3:0] captureCnt;
+output 	[3:0] latchCnt;
+output 	[3:0] clrCnt;
+
+// Design Ports Information
+// cnt[0]	=>  Location: PIN_F10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// cnt[1]	=>  Location: PIN_E10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// cnt[2]	=>  Location: PIN_H12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// cnt[3]	=>  Location: PIN_A12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// pulseFOut	=>  Location: PIN_B13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clearOut	=>  Location: PIN_B8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// idleCnt[0]	=>  Location: PIN_D11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// idleCnt[1]	=>  Location: PIN_D13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// idleCnt[2]	=>  Location: PIN_G9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// idleCnt[3]	=>  Location: PIN_F9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// captureCnt[0]	=>  Location: PIN_B10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// captureCnt[1]	=>  Location: PIN_B11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// captureCnt[2]	=>  Location: PIN_C8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// captureCnt[3]	=>  Location: PIN_B6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// latchCnt[0]	=>  Location: PIN_F11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// latchCnt[1]	=>  Location: PIN_D10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// latchCnt[2]	=>  Location: PIN_H10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// latchCnt[3]	=>  Location: PIN_A11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clrCnt[0]	=>  Location: PIN_C13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clrCnt[1]	=>  Location: PIN_C11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clrCnt[2]	=>  Location: PIN_C12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clrCnt[3]	=>  Location: PIN_D12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clk	=>  Location: PIN_J7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// control	=>  Location: PIN_E13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// pulse	=>  Location: PIN_A13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \cnt[0]~output_o ;
+wire \cnt[1]~output_o ;
+wire \cnt[2]~output_o ;
+wire \cnt[3]~output_o ;
+wire \pulseFOut~output_o ;
+wire \clearOut~output_o ;
+wire \idleCnt[0]~output_o ;
+wire \idleCnt[1]~output_o ;
+wire \idleCnt[2]~output_o ;
+wire \idleCnt[3]~output_o ;
+wire \captureCnt[0]~output_o ;
+wire \captureCnt[1]~output_o ;
+wire \captureCnt[2]~output_o ;
+wire \captureCnt[3]~output_o ;
+wire \latchCnt[0]~output_o ;
+wire \latchCnt[1]~output_o ;
+wire \latchCnt[2]~output_o ;
+wire \latchCnt[3]~output_o ;
+wire \clrCnt[0]~output_o ;
+wire \clrCnt[1]~output_o ;
+wire \clrCnt[2]~output_o ;
+wire \clrCnt[3]~output_o ;
+wire \clk~input_o ;
+wire \clk~inputclkctrl_outclk ;
+wire \control~input_o ;
+wire \PulseCatcher:state.CLR~q ;
+wire \pulse~input_o ;
+wire \Selector0~0_combout ;
+wire \clear~q ;
+wire \flancterGen|clrFlop~0_combout ;
+wire \flancterGen|clrFlop~q ;
+wire \flancterGen|setFlop~0_combout ;
+wire \flancterGen|setFlop~q ;
+wire \flancterGen|flagSync~0_combout ;
+wire \flancterGen|flagSync~q ;
+wire \PulseCatcher:state.IDLE~0_combout ;
+wire \PulseCatcher:state.IDLE~1_combout ;
+wire \PulseCatcher:state.IDLE~q ;
+wire \Selector2~0_combout ;
+wire \PulseCatcher:state.CAPTURE~q ;
+wire \Selector3~0_combout ;
+wire \PulseCatcher:state.LATCH~q ;
+wire \PulseCatcher:count[0]~0_combout ;
+wire \PulseCatcher:count[0]~q ;
+wire \PulseCatcher:count[1]~0_combout ;
+wire \PulseCatcher:count[1]~q ;
+wire \PulseCatcher:count[2]~0_combout ;
+wire \PulseCatcher:count[2]~q ;
+wire \PulseCatcher:count[3]~0_combout ;
+wire \PulseCatcher:count[3]~1_combout ;
+wire \PulseCatcher:count[3]~q ;
+wire \PulseCatcher:idlecount[0]~0_combout ;
+wire \PulseCatcher:idlecount[0]~q ;
+wire \PulseCatcher:idlecount[1]~0_combout ;
+wire \PulseCatcher:idlecount[1]~q ;
+wire \PulseCatcher:idlecount[2]~0_combout ;
+wire \PulseCatcher:idlecount[2]~q ;
+wire \PulseCatcher:idlecount[3]~0_combout ;
+wire \PulseCatcher:idlecount[3]~1_combout ;
+wire \PulseCatcher:idlecount[3]~q ;
+wire \PulseCatcher:capturecount[0]~0_combout ;
+wire \PulseCatcher:capturecount[0]~q ;
+wire \PulseCatcher:capturecount[1]~0_combout ;
+wire \PulseCatcher:capturecount[1]~q ;
+wire \PulseCatcher:capturecount[2]~0_combout ;
+wire \PulseCatcher:capturecount[2]~q ;
+wire \PulseCatcher:capturecount[3]~0_combout ;
+wire \PulseCatcher:capturecount[3]~1_combout ;
+wire \PulseCatcher:capturecount[3]~q ;
+wire \PulseCatcher:clrcount[0]~0_combout ;
+wire \PulseCatcher:clrcount[0]~q ;
+wire \PulseCatcher:clrcount[1]~0_combout ;
+wire \PulseCatcher:clrcount[1]~q ;
+wire \PulseCatcher:clrcount[2]~0_combout ;
+wire \PulseCatcher:clrcount[2]~q ;
+wire \PulseCatcher:clrcount[3]~0_combout ;
+wire \PulseCatcher:clrcount[3]~1_combout ;
+wire \PulseCatcher:clrcount[3]~q ;
+
+
+// Location: IOOBUF_X33_Y24_N2
+cycloneiv_io_obuf \cnt[0]~output (
+	.i(\PulseCatcher:count[0]~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\cnt[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \cnt[0]~output .bus_hold = "false";
+defparam \cnt[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X33_Y27_N2
+cycloneiv_io_obuf \cnt[1]~output (
+	.i(\PulseCatcher:count[1]~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\cnt[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \cnt[1]~output .bus_hold = "false";
+defparam \cnt[1]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X33_Y14_N9
+cycloneiv_io_obuf \cnt[2]~output (
+	.i(\PulseCatcher:count[2]~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\cnt[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \cnt[2]~output .bus_hold = "false";
+defparam \cnt[2]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X20_Y31_N9
+cycloneiv_io_obuf \cnt[3]~output (
+	.i(\PulseCatcher:count[3]~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\cnt[3]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \cnt[3]~output .bus_hold = "false";
+defparam \cnt[3]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X26_Y31_N9
+cycloneiv_io_obuf \pulseFOut~output (
+	.i(\flancterGen|flagSync~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\pulseFOut~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \pulseFOut~output .bus_hold = "false";
+defparam \pulseFOut~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X22_Y31_N2
+cycloneiv_io_obuf \clearOut~output (
+	.i(\clear~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\clearOut~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \clearOut~output .bus_hold = "false";
+defparam \clearOut~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X33_Y28_N2
+cycloneiv_io_obuf \idleCnt[0]~output (
+	.i(\PulseCatcher:idlecount[0]~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\idleCnt[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \idleCnt[0]~output .bus_hold = "false";
+defparam \idleCnt[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X29_Y31_N9
+cycloneiv_io_obuf \idleCnt[1]~output (
+	.i(\PulseCatcher:idlecount[1]~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\idleCnt[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \idleCnt[1]~output .bus_hold = "false";
+defparam \idleCnt[1]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X33_Y22_N2
+cycloneiv_io_obuf \idleCnt[2]~output (
+	.i(\PulseCatcher:idlecount[2]~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\idleCnt[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \idleCnt[2]~output .bus_hold = "false";
+defparam \idleCnt[2]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X33_Y25_N2
+cycloneiv_io_obuf \idleCnt[3]~output (
+	.i(\PulseCatcher:idlecount[3]~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\idleCnt[3]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \idleCnt[3]~output .bus_hold = "false";
+defparam \idleCnt[3]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X24_Y31_N9
+cycloneiv_io_obuf \captureCnt[0]~output (
+	.i(\PulseCatcher:capturecount[0]~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\captureCnt[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \captureCnt[0]~output .bus_hold = "false";
+defparam \captureCnt[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X24_Y31_N2
+cycloneiv_io_obuf \captureCnt[1]~output (
+	.i(\PulseCatcher:capturecount[1]~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\captureCnt[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \captureCnt[1]~output .bus_hold = "false";
+defparam \captureCnt[1]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X22_Y31_N9
+cycloneiv_io_obuf \captureCnt[2]~output (
+	.i(\PulseCatcher:capturecount[2]~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\captureCnt[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \captureCnt[2]~output .bus_hold = "false";
+defparam \captureCnt[2]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X14_Y31_N9
+cycloneiv_io_obuf \captureCnt[3]~output (
+	.i(\PulseCatcher:capturecount[3]~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\captureCnt[3]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \captureCnt[3]~output .bus_hold = "false";
+defparam \captureCnt[3]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X33_Y24_N9
+cycloneiv_io_obuf \latchCnt[0]~output (
+	.i(\PulseCatcher:count[0]~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\latchCnt[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \latchCnt[0]~output .bus_hold = "false";
+defparam \latchCnt[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X33_Y27_N9
+cycloneiv_io_obuf \latchCnt[1]~output (
+	.i(\PulseCatcher:count[1]~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\latchCnt[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \latchCnt[1]~output .bus_hold = "false";
+defparam \latchCnt[1]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X33_Y14_N2
+cycloneiv_io_obuf \latchCnt[2]~output (
+	.i(\PulseCatcher:count[2]~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\latchCnt[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \latchCnt[2]~output .bus_hold = "false";
+defparam \latchCnt[2]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X20_Y31_N2
+cycloneiv_io_obuf \latchCnt[3]~output (
+	.i(\PulseCatcher:count[3]~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\latchCnt[3]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \latchCnt[3]~output .bus_hold = "false";
+defparam \latchCnt[3]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X29_Y31_N2
+cycloneiv_io_obuf \clrCnt[0]~output (
+	.i(\PulseCatcher:clrcount[0]~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\clrCnt[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \clrCnt[0]~output .bus_hold = "false";
+defparam \clrCnt[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X31_Y31_N2
+cycloneiv_io_obuf \clrCnt[1]~output (
+	.i(\PulseCatcher:clrcount[1]~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\clrCnt[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \clrCnt[1]~output .bus_hold = "false";
+defparam \clrCnt[1]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X31_Y31_N9
+cycloneiv_io_obuf \clrCnt[2]~output (
+	.i(\PulseCatcher:clrcount[2]~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\clrCnt[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \clrCnt[2]~output .bus_hold = "false";
+defparam \clrCnt[2]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X33_Y28_N9
+cycloneiv_io_obuf \clrCnt[3]~output (
+	.i(\PulseCatcher:clrcount[3]~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\clrCnt[3]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \clrCnt[3]~output .bus_hold = "false";
+defparam \clrCnt[3]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X16_Y0_N15
+cycloneiv_io_ibuf \clk~input (
+	.i(clk),
+	.ibar(gnd),
+	.o(\clk~input_o ));
+// synopsys translate_off
+defparam \clk~input .bus_hold = "false";
+defparam \clk~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: CLKCTRL_G17
+cycloneiv_clkctrl \clk~inputclkctrl (
+	.ena(vcc),
+	.inclk({vcc,vcc,vcc,\clk~input_o }),
+	.clkselect(2'b00),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.outclk(\clk~inputclkctrl_outclk ));
+// synopsys translate_off
+defparam \clk~inputclkctrl .clock_type = "global clock";
+defparam \clk~inputclkctrl .ena_register_mode = "none";
+// synopsys translate_on
+
+// Location: IOIBUF_X33_Y25_N8
+cycloneiv_io_ibuf \control~input (
+	.i(control),
+	.ibar(gnd),
+	.o(\control~input_o ));
+// synopsys translate_off
+defparam \control~input .bus_hold = "false";
+defparam \control~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X27_Y30_N13
+dffeas \PulseCatcher:state.CLR (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\PulseCatcher:state.LATCH~q ),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\PulseCatcher:state.CLR~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \PulseCatcher:state.CLR .is_wysiwyg = "true";
+defparam \PulseCatcher:state.CLR .power_up = "low";
+// synopsys translate_on
+
+// Location: IOIBUF_X26_Y31_N1
+cycloneiv_io_ibuf \pulse~input (
+	.i(pulse),
+	.ibar(gnd),
+	.o(\pulse~input_o ));
+// synopsys translate_off
+defparam \pulse~input .bus_hold = "false";
+defparam \pulse~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X26_Y30_N18
+cycloneiv_lcell_comb \Selector0~0 (
+// Equation(s):
+// \Selector0~0_combout  = (\PulseCatcher:state.CLR~q ) # ((\clear~q  & ((\PulseCatcher:state.CAPTURE~q ) # (\PulseCatcher:state.LATCH~q ))))
+
+	.dataa(\PulseCatcher:state.CAPTURE~q ),
+	.datab(\PulseCatcher:state.LATCH~q ),
+	.datac(\clear~q ),
+	.datad(\PulseCatcher:state.CLR~q ),
+	.cin(gnd),
+	.combout(\Selector0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Selector0~0 .lut_mask = 16'hFFE0;
+defparam \Selector0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X26_Y30_N19
+dffeas clear(
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Selector0~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\clear~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam clear.is_wysiwyg = "true";
+defparam clear.power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X26_Y30_N2
+cycloneiv_lcell_comb \flancterGen|clrFlop~0 (
+// Equation(s):
+// \flancterGen|clrFlop~0_combout  = (\clear~q  & (\flancterGen|setFlop~q )) # (!\clear~q  & ((\flancterGen|clrFlop~q )))
+
+	.dataa(gnd),
+	.datab(\flancterGen|setFlop~q ),
+	.datac(\flancterGen|clrFlop~q ),
+	.datad(\clear~q ),
+	.cin(gnd),
+	.combout(\flancterGen|clrFlop~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \flancterGen|clrFlop~0 .lut_mask = 16'hCCF0;
+defparam \flancterGen|clrFlop~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X26_Y30_N3
+dffeas \flancterGen|clrFlop (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\flancterGen|clrFlop~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\flancterGen|clrFlop~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \flancterGen|clrFlop .is_wysiwyg = "true";
+defparam \flancterGen|clrFlop .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X26_Y30_N16
+cycloneiv_lcell_comb \flancterGen|setFlop~0 (
+// Equation(s):
+// \flancterGen|setFlop~0_combout  = (\control~input_o  & ((!\flancterGen|clrFlop~q ))) # (!\control~input_o  & (\flancterGen|setFlop~q ))
+
+	.dataa(\control~input_o ),
+	.datab(gnd),
+	.datac(\flancterGen|setFlop~q ),
+	.datad(\flancterGen|clrFlop~q ),
+	.cin(gnd),
+	.combout(\flancterGen|setFlop~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \flancterGen|setFlop~0 .lut_mask = 16'h50FA;
+defparam \flancterGen|setFlop~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X26_Y30_N17
+dffeas \flancterGen|setFlop (
+	.clk(\pulse~input_o ),
+	.d(\flancterGen|setFlop~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\flancterGen|setFlop~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \flancterGen|setFlop .is_wysiwyg = "true";
+defparam \flancterGen|setFlop .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X26_Y30_N8
+cycloneiv_lcell_comb \flancterGen|flagSync~0 (
+// Equation(s):
+// \flancterGen|flagSync~0_combout  = (!\clear~q  & (\flancterGen|setFlop~q  $ (\flancterGen|clrFlop~q )))
+
+	.dataa(gnd),
+	.datab(\flancterGen|setFlop~q ),
+	.datac(\flancterGen|clrFlop~q ),
+	.datad(\clear~q ),
+	.cin(gnd),
+	.combout(\flancterGen|flagSync~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \flancterGen|flagSync~0 .lut_mask = 16'h003C;
+defparam \flancterGen|flagSync~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X26_Y30_N9
+dffeas \flancterGen|flagSync (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\flancterGen|flagSync~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\flancterGen|flagSync~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \flancterGen|flagSync .is_wysiwyg = "true";
+defparam \flancterGen|flagSync .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X26_Y30_N6
+cycloneiv_lcell_comb \PulseCatcher:state.IDLE~0 (
+// Equation(s):
+// \PulseCatcher:state.IDLE~0_combout  = (\PulseCatcher:state.IDLE~q ) # ((\PulseCatcher:state.CAPTURE~q  & ((\flancterGen|flagSync~q ))) # (!\PulseCatcher:state.CAPTURE~q  & (\control~input_o )))
+
+	.dataa(\control~input_o ),
+	.datab(\flancterGen|flagSync~q ),
+	.datac(\PulseCatcher:state.IDLE~q ),
+	.datad(\PulseCatcher:state.CAPTURE~q ),
+	.cin(gnd),
+	.combout(\PulseCatcher:state.IDLE~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:state.IDLE~0 .lut_mask = 16'hFCFA;
+defparam \PulseCatcher:state.IDLE~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X26_Y30_N14
+cycloneiv_lcell_comb \PulseCatcher:state.IDLE~1 (
+// Equation(s):
+// \PulseCatcher:state.IDLE~1_combout  = (!\PulseCatcher:state.CLR~q  & ((\PulseCatcher:state.LATCH~q ) # (\PulseCatcher:state.IDLE~0_combout )))
+
+	.dataa(gnd),
+	.datab(\PulseCatcher:state.CLR~q ),
+	.datac(\PulseCatcher:state.LATCH~q ),
+	.datad(\PulseCatcher:state.IDLE~0_combout ),
+	.cin(gnd),
+	.combout(\PulseCatcher:state.IDLE~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:state.IDLE~1 .lut_mask = 16'h3330;
+defparam \PulseCatcher:state.IDLE~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X26_Y30_N15
+dffeas \PulseCatcher:state.IDLE (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\PulseCatcher:state.IDLE~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\PulseCatcher:state.IDLE~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \PulseCatcher:state.IDLE .is_wysiwyg = "true";
+defparam \PulseCatcher:state.IDLE .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X26_Y30_N24
+cycloneiv_lcell_comb \Selector2~0 (
+// Equation(s):
+// \Selector2~0_combout  = (\control~input_o  & (((\PulseCatcher:state.CAPTURE~q  & !\flancterGen|flagSync~q )) # (!\PulseCatcher:state.IDLE~q ))) # (!\control~input_o  & (((\PulseCatcher:state.CAPTURE~q  & !\flancterGen|flagSync~q ))))
+
+	.dataa(\control~input_o ),
+	.datab(\PulseCatcher:state.IDLE~q ),
+	.datac(\PulseCatcher:state.CAPTURE~q ),
+	.datad(\flancterGen|flagSync~q ),
+	.cin(gnd),
+	.combout(\Selector2~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Selector2~0 .lut_mask = 16'h22F2;
+defparam \Selector2~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X26_Y30_N25
+dffeas \PulseCatcher:state.CAPTURE (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Selector2~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\PulseCatcher:state.CAPTURE~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \PulseCatcher:state.CAPTURE .is_wysiwyg = "true";
+defparam \PulseCatcher:state.CAPTURE .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X27_Y30_N14
+cycloneiv_lcell_comb \Selector3~0 (
+// Equation(s):
+// \Selector3~0_combout  = (\PulseCatcher:state.CAPTURE~q  & \flancterGen|flagSync~q )
+
+	.dataa(gnd),
+	.datab(\PulseCatcher:state.CAPTURE~q ),
+	.datac(gnd),
+	.datad(\flancterGen|flagSync~q ),
+	.cin(gnd),
+	.combout(\Selector3~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Selector3~0 .lut_mask = 16'hCC00;
+defparam \Selector3~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X27_Y30_N15
+dffeas \PulseCatcher:state.LATCH (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Selector3~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\PulseCatcher:state.LATCH~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \PulseCatcher:state.LATCH .is_wysiwyg = "true";
+defparam \PulseCatcher:state.LATCH .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X27_Y30_N30
+cycloneiv_lcell_comb \PulseCatcher:count[0]~0 (
+// Equation(s):
+// \PulseCatcher:count[0]~0_combout  = \PulseCatcher:state.LATCH~q  $ (\PulseCatcher:count[0]~q )
+
+	.dataa(gnd),
+	.datab(\PulseCatcher:state.LATCH~q ),
+	.datac(\PulseCatcher:count[0]~q ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\PulseCatcher:count[0]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:count[0]~0 .lut_mask = 16'h3C3C;
+defparam \PulseCatcher:count[0]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X27_Y30_N31
+dffeas \PulseCatcher:count[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\PulseCatcher:count[0]~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\PulseCatcher:count[0]~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \PulseCatcher:count[0] .is_wysiwyg = "true";
+defparam \PulseCatcher:count[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X27_Y30_N0
+cycloneiv_lcell_comb \PulseCatcher:count[1]~0 (
+// Equation(s):
+// \PulseCatcher:count[1]~0_combout  = \PulseCatcher:count[1]~q  $ (((\PulseCatcher:count[0]~q  & \PulseCatcher:state.LATCH~q )))
+
+	.dataa(\PulseCatcher:count[0]~q ),
+	.datab(\PulseCatcher:state.LATCH~q ),
+	.datac(\PulseCatcher:count[1]~q ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\PulseCatcher:count[1]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:count[1]~0 .lut_mask = 16'h7878;
+defparam \PulseCatcher:count[1]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X27_Y30_N1
+dffeas \PulseCatcher:count[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\PulseCatcher:count[1]~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\PulseCatcher:count[1]~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \PulseCatcher:count[1] .is_wysiwyg = "true";
+defparam \PulseCatcher:count[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X27_Y30_N26
+cycloneiv_lcell_comb \PulseCatcher:count[2]~0 (
+// Equation(s):
+// \PulseCatcher:count[2]~0_combout  = \PulseCatcher:count[2]~q  $ (((\PulseCatcher:count[0]~q  & (\PulseCatcher:state.LATCH~q  & \PulseCatcher:count[1]~q ))))
+
+	.dataa(\PulseCatcher:count[0]~q ),
+	.datab(\PulseCatcher:state.LATCH~q ),
+	.datac(\PulseCatcher:count[2]~q ),
+	.datad(\PulseCatcher:count[1]~q ),
+	.cin(gnd),
+	.combout(\PulseCatcher:count[2]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:count[2]~0 .lut_mask = 16'h78F0;
+defparam \PulseCatcher:count[2]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X27_Y30_N27
+dffeas \PulseCatcher:count[2] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\PulseCatcher:count[2]~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\PulseCatcher:count[2]~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \PulseCatcher:count[2] .is_wysiwyg = "true";
+defparam \PulseCatcher:count[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X27_Y30_N12
+cycloneiv_lcell_comb \PulseCatcher:count[3]~0 (
+// Equation(s):
+// \PulseCatcher:count[3]~0_combout  = (\PulseCatcher:count[0]~q  & (\PulseCatcher:count[1]~q  & (\PulseCatcher:state.LATCH~q  & \PulseCatcher:count[2]~q )))
+
+	.dataa(\PulseCatcher:count[0]~q ),
+	.datab(\PulseCatcher:count[1]~q ),
+	.datac(\PulseCatcher:state.LATCH~q ),
+	.datad(\PulseCatcher:count[2]~q ),
+	.cin(gnd),
+	.combout(\PulseCatcher:count[3]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:count[3]~0 .lut_mask = 16'h8000;
+defparam \PulseCatcher:count[3]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X27_Y30_N6
+cycloneiv_lcell_comb \PulseCatcher:count[3]~1 (
+// Equation(s):
+// \PulseCatcher:count[3]~1_combout  = \PulseCatcher:count[3]~q  $ (\PulseCatcher:count[3]~0_combout )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\PulseCatcher:count[3]~q ),
+	.datad(\PulseCatcher:count[3]~0_combout ),
+	.cin(gnd),
+	.combout(\PulseCatcher:count[3]~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:count[3]~1 .lut_mask = 16'h0FF0;
+defparam \PulseCatcher:count[3]~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X27_Y30_N7
+dffeas \PulseCatcher:count[3] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\PulseCatcher:count[3]~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\PulseCatcher:count[3]~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \PulseCatcher:count[3] .is_wysiwyg = "true";
+defparam \PulseCatcher:count[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X27_Y30_N22
+cycloneiv_lcell_comb \PulseCatcher:idlecount[0]~0 (
+// Equation(s):
+// \PulseCatcher:idlecount[0]~0_combout  = \PulseCatcher:idlecount[0]~q  $ (!\PulseCatcher:state.IDLE~q )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\PulseCatcher:idlecount[0]~q ),
+	.datad(\PulseCatcher:state.IDLE~q ),
+	.cin(gnd),
+	.combout(\PulseCatcher:idlecount[0]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:idlecount[0]~0 .lut_mask = 16'hF00F;
+defparam \PulseCatcher:idlecount[0]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X27_Y30_N23
+dffeas \PulseCatcher:idlecount[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\PulseCatcher:idlecount[0]~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\PulseCatcher:idlecount[0]~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \PulseCatcher:idlecount[0] .is_wysiwyg = "true";
+defparam \PulseCatcher:idlecount[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X27_Y30_N4
+cycloneiv_lcell_comb \PulseCatcher:idlecount[1]~0 (
+// Equation(s):
+// \PulseCatcher:idlecount[1]~0_combout  = \PulseCatcher:idlecount[1]~q  $ (((\PulseCatcher:idlecount[0]~q  & !\PulseCatcher:state.IDLE~q )))
+
+	.dataa(\PulseCatcher:idlecount[0]~q ),
+	.datab(gnd),
+	.datac(\PulseCatcher:idlecount[1]~q ),
+	.datad(\PulseCatcher:state.IDLE~q ),
+	.cin(gnd),
+	.combout(\PulseCatcher:idlecount[1]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:idlecount[1]~0 .lut_mask = 16'hF05A;
+defparam \PulseCatcher:idlecount[1]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X27_Y30_N5
+dffeas \PulseCatcher:idlecount[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\PulseCatcher:idlecount[1]~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\PulseCatcher:idlecount[1]~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \PulseCatcher:idlecount[1] .is_wysiwyg = "true";
+defparam \PulseCatcher:idlecount[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X27_Y30_N8
+cycloneiv_lcell_comb \PulseCatcher:idlecount[2]~0 (
+// Equation(s):
+// \PulseCatcher:idlecount[2]~0_combout  = \PulseCatcher:idlecount[2]~q  $ (((\PulseCatcher:idlecount[0]~q  & (\PulseCatcher:idlecount[1]~q  & !\PulseCatcher:state.IDLE~q ))))
+
+	.dataa(\PulseCatcher:idlecount[0]~q ),
+	.datab(\PulseCatcher:idlecount[1]~q ),
+	.datac(\PulseCatcher:idlecount[2]~q ),
+	.datad(\PulseCatcher:state.IDLE~q ),
+	.cin(gnd),
+	.combout(\PulseCatcher:idlecount[2]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:idlecount[2]~0 .lut_mask = 16'hF078;
+defparam \PulseCatcher:idlecount[2]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X27_Y30_N9
+dffeas \PulseCatcher:idlecount[2] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\PulseCatcher:idlecount[2]~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\PulseCatcher:idlecount[2]~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \PulseCatcher:idlecount[2] .is_wysiwyg = "true";
+defparam \PulseCatcher:idlecount[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X27_Y30_N2
+cycloneiv_lcell_comb \PulseCatcher:idlecount[3]~0 (
+// Equation(s):
+// \PulseCatcher:idlecount[3]~0_combout  = (\PulseCatcher:idlecount[0]~q  & (\PulseCatcher:idlecount[1]~q  & (\PulseCatcher:idlecount[2]~q  & !\PulseCatcher:state.IDLE~q )))
+
+	.dataa(\PulseCatcher:idlecount[0]~q ),
+	.datab(\PulseCatcher:idlecount[1]~q ),
+	.datac(\PulseCatcher:idlecount[2]~q ),
+	.datad(\PulseCatcher:state.IDLE~q ),
+	.cin(gnd),
+	.combout(\PulseCatcher:idlecount[3]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:idlecount[3]~0 .lut_mask = 16'h0080;
+defparam \PulseCatcher:idlecount[3]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X27_Y30_N18
+cycloneiv_lcell_comb \PulseCatcher:idlecount[3]~1 (
+// Equation(s):
+// \PulseCatcher:idlecount[3]~1_combout  = \PulseCatcher:idlecount[3]~q  $ (\PulseCatcher:idlecount[3]~0_combout )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\PulseCatcher:idlecount[3]~q ),
+	.datad(\PulseCatcher:idlecount[3]~0_combout ),
+	.cin(gnd),
+	.combout(\PulseCatcher:idlecount[3]~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:idlecount[3]~1 .lut_mask = 16'h0FF0;
+defparam \PulseCatcher:idlecount[3]~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X27_Y30_N19
+dffeas \PulseCatcher:idlecount[3] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\PulseCatcher:idlecount[3]~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\PulseCatcher:idlecount[3]~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \PulseCatcher:idlecount[3] .is_wysiwyg = "true";
+defparam \PulseCatcher:idlecount[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X26_Y30_N4
+cycloneiv_lcell_comb \PulseCatcher:capturecount[0]~0 (
+// Equation(s):
+// \PulseCatcher:capturecount[0]~0_combout  = \PulseCatcher:capturecount[0]~q  $ (\PulseCatcher:state.CAPTURE~q )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\PulseCatcher:capturecount[0]~q ),
+	.datad(\PulseCatcher:state.CAPTURE~q ),
+	.cin(gnd),
+	.combout(\PulseCatcher:capturecount[0]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:capturecount[0]~0 .lut_mask = 16'h0FF0;
+defparam \PulseCatcher:capturecount[0]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X26_Y30_N5
+dffeas \PulseCatcher:capturecount[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\PulseCatcher:capturecount[0]~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\PulseCatcher:capturecount[0]~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \PulseCatcher:capturecount[0] .is_wysiwyg = "true";
+defparam \PulseCatcher:capturecount[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X26_Y30_N30
+cycloneiv_lcell_comb \PulseCatcher:capturecount[1]~0 (
+// Equation(s):
+// \PulseCatcher:capturecount[1]~0_combout  = \PulseCatcher:capturecount[1]~q  $ (((\PulseCatcher:capturecount[0]~q  & \PulseCatcher:state.CAPTURE~q )))
+
+	.dataa(gnd),
+	.datab(\PulseCatcher:capturecount[0]~q ),
+	.datac(\PulseCatcher:capturecount[1]~q ),
+	.datad(\PulseCatcher:state.CAPTURE~q ),
+	.cin(gnd),
+	.combout(\PulseCatcher:capturecount[1]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:capturecount[1]~0 .lut_mask = 16'h3CF0;
+defparam \PulseCatcher:capturecount[1]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X26_Y30_N31
+dffeas \PulseCatcher:capturecount[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\PulseCatcher:capturecount[1]~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\PulseCatcher:capturecount[1]~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \PulseCatcher:capturecount[1] .is_wysiwyg = "true";
+defparam \PulseCatcher:capturecount[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X26_Y30_N28
+cycloneiv_lcell_comb \PulseCatcher:capturecount[2]~0 (
+// Equation(s):
+// \PulseCatcher:capturecount[2]~0_combout  = \PulseCatcher:capturecount[2]~q  $ (((\PulseCatcher:capturecount[1]~q  & (\PulseCatcher:capturecount[0]~q  & \PulseCatcher:state.CAPTURE~q ))))
+
+	.dataa(\PulseCatcher:capturecount[1]~q ),
+	.datab(\PulseCatcher:capturecount[0]~q ),
+	.datac(\PulseCatcher:capturecount[2]~q ),
+	.datad(\PulseCatcher:state.CAPTURE~q ),
+	.cin(gnd),
+	.combout(\PulseCatcher:capturecount[2]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:capturecount[2]~0 .lut_mask = 16'h78F0;
+defparam \PulseCatcher:capturecount[2]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X26_Y30_N29
+dffeas \PulseCatcher:capturecount[2] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\PulseCatcher:capturecount[2]~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\PulseCatcher:capturecount[2]~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \PulseCatcher:capturecount[2] .is_wysiwyg = "true";
+defparam \PulseCatcher:capturecount[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X26_Y30_N20
+cycloneiv_lcell_comb \PulseCatcher:capturecount[3]~0 (
+// Equation(s):
+// \PulseCatcher:capturecount[3]~0_combout  = (\PulseCatcher:capturecount[1]~q  & (\PulseCatcher:capturecount[2]~q  & (\PulseCatcher:capturecount[0]~q  & \PulseCatcher:state.CAPTURE~q )))
+
+	.dataa(\PulseCatcher:capturecount[1]~q ),
+	.datab(\PulseCatcher:capturecount[2]~q ),
+	.datac(\PulseCatcher:capturecount[0]~q ),
+	.datad(\PulseCatcher:state.CAPTURE~q ),
+	.cin(gnd),
+	.combout(\PulseCatcher:capturecount[3]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:capturecount[3]~0 .lut_mask = 16'h8000;
+defparam \PulseCatcher:capturecount[3]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X26_Y30_N26
+cycloneiv_lcell_comb \PulseCatcher:capturecount[3]~1 (
+// Equation(s):
+// \PulseCatcher:capturecount[3]~1_combout  = \PulseCatcher:capturecount[3]~q  $ (\PulseCatcher:capturecount[3]~0_combout )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\PulseCatcher:capturecount[3]~q ),
+	.datad(\PulseCatcher:capturecount[3]~0_combout ),
+	.cin(gnd),
+	.combout(\PulseCatcher:capturecount[3]~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:capturecount[3]~1 .lut_mask = 16'h0FF0;
+defparam \PulseCatcher:capturecount[3]~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X26_Y30_N27
+dffeas \PulseCatcher:capturecount[3] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\PulseCatcher:capturecount[3]~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\PulseCatcher:capturecount[3]~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \PulseCatcher:capturecount[3] .is_wysiwyg = "true";
+defparam \PulseCatcher:capturecount[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X27_Y30_N16
+cycloneiv_lcell_comb \PulseCatcher:clrcount[0]~0 (
+// Equation(s):
+// \PulseCatcher:clrcount[0]~0_combout  = \PulseCatcher:state.CLR~q  $ (\PulseCatcher:clrcount[0]~q )
+
+	.dataa(gnd),
+	.datab(\PulseCatcher:state.CLR~q ),
+	.datac(\PulseCatcher:clrcount[0]~q ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\PulseCatcher:clrcount[0]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:clrcount[0]~0 .lut_mask = 16'h3C3C;
+defparam \PulseCatcher:clrcount[0]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X27_Y30_N17
+dffeas \PulseCatcher:clrcount[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\PulseCatcher:clrcount[0]~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\PulseCatcher:clrcount[0]~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \PulseCatcher:clrcount[0] .is_wysiwyg = "true";
+defparam \PulseCatcher:clrcount[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X27_Y30_N10
+cycloneiv_lcell_comb \PulseCatcher:clrcount[1]~0 (
+// Equation(s):
+// \PulseCatcher:clrcount[1]~0_combout  = \PulseCatcher:clrcount[1]~q  $ (((\PulseCatcher:state.CLR~q  & \PulseCatcher:clrcount[0]~q )))
+
+	.dataa(gnd),
+	.datab(\PulseCatcher:state.CLR~q ),
+	.datac(\PulseCatcher:clrcount[1]~q ),
+	.datad(\PulseCatcher:clrcount[0]~q ),
+	.cin(gnd),
+	.combout(\PulseCatcher:clrcount[1]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:clrcount[1]~0 .lut_mask = 16'h3CF0;
+defparam \PulseCatcher:clrcount[1]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X27_Y30_N11
+dffeas \PulseCatcher:clrcount[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\PulseCatcher:clrcount[1]~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\PulseCatcher:clrcount[1]~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \PulseCatcher:clrcount[1] .is_wysiwyg = "true";
+defparam \PulseCatcher:clrcount[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X27_Y30_N24
+cycloneiv_lcell_comb \PulseCatcher:clrcount[2]~0 (
+// Equation(s):
+// \PulseCatcher:clrcount[2]~0_combout  = \PulseCatcher:clrcount[2]~q  $ (((\PulseCatcher:clrcount[0]~q  & (\PulseCatcher:state.CLR~q  & \PulseCatcher:clrcount[1]~q ))))
+
+	.dataa(\PulseCatcher:clrcount[0]~q ),
+	.datab(\PulseCatcher:state.CLR~q ),
+	.datac(\PulseCatcher:clrcount[2]~q ),
+	.datad(\PulseCatcher:clrcount[1]~q ),
+	.cin(gnd),
+	.combout(\PulseCatcher:clrcount[2]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:clrcount[2]~0 .lut_mask = 16'h78F0;
+defparam \PulseCatcher:clrcount[2]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X27_Y30_N25
+dffeas \PulseCatcher:clrcount[2] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\PulseCatcher:clrcount[2]~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\PulseCatcher:clrcount[2]~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \PulseCatcher:clrcount[2] .is_wysiwyg = "true";
+defparam \PulseCatcher:clrcount[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X27_Y30_N20
+cycloneiv_lcell_comb \PulseCatcher:clrcount[3]~0 (
+// Equation(s):
+// \PulseCatcher:clrcount[3]~0_combout  = (\PulseCatcher:clrcount[1]~q  & (\PulseCatcher:clrcount[0]~q  & (\PulseCatcher:state.CLR~q  & \PulseCatcher:clrcount[2]~q )))
+
+	.dataa(\PulseCatcher:clrcount[1]~q ),
+	.datab(\PulseCatcher:clrcount[0]~q ),
+	.datac(\PulseCatcher:state.CLR~q ),
+	.datad(\PulseCatcher:clrcount[2]~q ),
+	.cin(gnd),
+	.combout(\PulseCatcher:clrcount[3]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:clrcount[3]~0 .lut_mask = 16'h8000;
+defparam \PulseCatcher:clrcount[3]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X27_Y30_N28
+cycloneiv_lcell_comb \PulseCatcher:clrcount[3]~1 (
+// Equation(s):
+// \PulseCatcher:clrcount[3]~1_combout  = \PulseCatcher:clrcount[3]~q  $ (\PulseCatcher:clrcount[3]~0_combout )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\PulseCatcher:clrcount[3]~q ),
+	.datad(\PulseCatcher:clrcount[3]~0_combout ),
+	.cin(gnd),
+	.combout(\PulseCatcher:clrcount[3]~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PulseCatcher:clrcount[3]~1 .lut_mask = 16'h0FF0;
+defparam \PulseCatcher:clrcount[3]~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X27_Y30_N29
+dffeas \PulseCatcher:clrcount[3] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\PulseCatcher:clrcount[3]~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\PulseCatcher:clrcount[3]~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \PulseCatcher:clrcount[3] .is_wysiwyg = "true";
+defparam \PulseCatcher:clrcount[3] .power_up = "low";
+// synopsys translate_on
+
+assign cnt[0] = \cnt[0]~output_o ;
+
+assign cnt[1] = \cnt[1]~output_o ;
+
+assign cnt[2] = \cnt[2]~output_o ;
+
+assign cnt[3] = \cnt[3]~output_o ;
+
+assign pulseFOut = \pulseFOut~output_o ;
+
+assign clearOut = \clearOut~output_o ;
+
+assign idleCnt[0] = \idleCnt[0]~output_o ;
+
+assign idleCnt[1] = \idleCnt[1]~output_o ;
+
+assign idleCnt[2] = \idleCnt[2]~output_o ;
+
+assign idleCnt[3] = \idleCnt[3]~output_o ;
+
+assign captureCnt[0] = \captureCnt[0]~output_o ;
+
+assign captureCnt[1] = \captureCnt[1]~output_o ;
+
+assign captureCnt[2] = \captureCnt[2]~output_o ;
+
+assign captureCnt[3] = \captureCnt[3]~output_o ;
+
+assign latchCnt[0] = \latchCnt[0]~output_o ;
+
+assign latchCnt[1] = \latchCnt[1]~output_o ;
+
+assign latchCnt[2] = \latchCnt[2]~output_o ;
+
+assign latchCnt[3] = \latchCnt[3]~output_o ;
+
+assign clrCnt[0] = \clrCnt[0]~output_o ;
+
+assign clrCnt[1] = \clrCnt[1]~output_o ;
+
+assign clrCnt[2] = \clrCnt[2]~output_o ;
+
+assign clrCnt[3] = \clrCnt[3]~output_o ;
+
+endmodule
