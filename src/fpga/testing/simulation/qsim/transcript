@@ -21,11 +21,35 @@
 # Loading cycloneiv_ver.cycloneiv_clkctrl
 # Loading cycloneiv_ver.cycloneiv_mux41
 # Loading cycloneiv_ver.cycloneiv_ena_reg
-# Loading cycloneiv_ver.cycloneiv_lcell_comb
 # Loading altera_ver.dffeas
+# Loading cycloneiv_ver.cycloneiv_lcell_comb
 # Loading work.testing_top_vlg_sample_tst
 # Loading work.testing_top_vlg_check_tst
 # Loading altera_ver.PRIM_GDFF_LOW
-# Simulation passed !
-# ** Note: $finish    : testing.vwf.vt(500)
-#    Time: 100 ns  Iteration: 0  Instance: /testing_top_vlg_vec_tst/tb_out
+# ERROR! Vector Mismatch for output port captureCnt[0] :: @time = 100000.000 ps
+#      Expected value = 0000
+#      Real value = 0101
+# ERROR! Vector Mismatch for output port captureCnt[2] :: @time = 100000.000 ps
+#      Expected value = 0000
+#      Real value = 0101
+# ERROR! Vector Mismatch for output port clrCnt[0] :: @time = 100000.000 ps
+#      Expected value = 0000
+#      Real value = 0001
+# ERROR! Vector Mismatch for output port cnt[0] :: @time = 100000.000 ps
+#      Expected value = 0000
+#      Real value = 0001
+# ERROR! Vector Mismatch for output port idleCnt[1] :: @time = 100000.000 ps
+#      Expected value = 0000
+#      Real value = 0010
+# ERROR! Vector Mismatch for output port latchCnt[0] :: @time = 100000.000 ps
+#      Expected value = 0000
+#      Real value = 0001
+# ERROR! Vector Mismatch for output port captureCnt[1] :: @time = 105000.000 ps
+#      Expected value = 0000
+#      Real value = 0110
+# ERROR! Vector Mismatch for output port captureCnt[3] :: @time = 125000.000 ps
+#      Expected value = 0000
+#      Real value = 1000
+#           8 mismatched vectors : Simulation failed !
+# ** Note: $finish    : testing.vwf.vt(602)
+#    Time: 200 ns  Iteration: 0  Instance: /testing_top_vlg_vec_tst/tb_out

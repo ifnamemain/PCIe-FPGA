@@ -3,7 +3,7 @@ $comment
 		vcd file testing.msim.vcd -direction
 $end
 $date
-	Mon Nov 10 16:12:09 2014
+	Mon Nov 10 17:09:50 2014
 $end
 $version
 	ModelSim Version 10.1e
@@ -15,95 +15,114 @@ $scope module testing_top_vlg_vec_tst $end
 $var reg 1 ! clk $end
 $var reg 1 " control $end
 $var reg 1 # pulse $end
-$var wire 1 $ clearOut $end
-$var wire 1 % clrCnt [3] $end
-$var wire 1 & clrCnt [2] $end
-$var wire 1 ' clrCnt [1] $end
-$var wire 1 ( clrCnt [0] $end
-$var wire 1 ) cnt [3] $end
-$var wire 1 * cnt [2] $end
-$var wire 1 + cnt [1] $end
-$var wire 1 , cnt [0] $end
-$var wire 1 - idleCnt [3] $end
-$var wire 1 . idleCnt [2] $end
-$var wire 1 / idleCnt [1] $end
-$var wire 1 0 idleCnt [0] $end
-$var wire 1 1 latchCnt [3] $end
-$var wire 1 2 latchCnt [2] $end
-$var wire 1 3 latchCnt [1] $end
-$var wire 1 4 latchCnt [0] $end
-$var wire 1 5 pulseFOut $end
-$var wire 1 6 sampler $end
+$var wire 1 $ captureCnt [3] $end
+$var wire 1 % captureCnt [2] $end
+$var wire 1 & captureCnt [1] $end
+$var wire 1 ' captureCnt [0] $end
+$var wire 1 ( clearOut $end
+$var wire 1 ) clrCnt [3] $end
+$var wire 1 * clrCnt [2] $end
+$var wire 1 + clrCnt [1] $end
+$var wire 1 , clrCnt [0] $end
+$var wire 1 - cnt [3] $end
+$var wire 1 . cnt [2] $end
+$var wire 1 / cnt [1] $end
+$var wire 1 0 cnt [0] $end
+$var wire 1 1 idleCnt [3] $end
+$var wire 1 2 idleCnt [2] $end
+$var wire 1 3 idleCnt [1] $end
+$var wire 1 4 idleCnt [0] $end
+$var wire 1 5 latchCnt [3] $end
+$var wire 1 6 latchCnt [2] $end
+$var wire 1 7 latchCnt [1] $end
+$var wire 1 8 latchCnt [0] $end
+$var wire 1 9 pulseFOut $end
+$var wire 1 : sampler $end
 $scope module i1 $end
-$var wire 1 7 gnd $end
-$var wire 1 8 vcc $end
-$var wire 1 9 unknown $end
-$var tri1 1 : devclrn $end
-$var tri1 1 ; devpor $end
-$var tri1 1 < devoe $end
-$var wire 1 = cnt[0]~output_o $end
-$var wire 1 > cnt[1]~output_o $end
-$var wire 1 ? cnt[2]~output_o $end
-$var wire 1 @ cnt[3]~output_o $end
-$var wire 1 A pulseFOut~output_o $end
-$var wire 1 B clearOut~output_o $end
-$var wire 1 C idleCnt[0]~output_o $end
-$var wire 1 D idleCnt[1]~output_o $end
-$var wire 1 E idleCnt[2]~output_o $end
-$var wire 1 F idleCnt[3]~output_o $end
-$var wire 1 G latchCnt[0]~output_o $end
-$var wire 1 H latchCnt[1]~output_o $end
-$var wire 1 I latchCnt[2]~output_o $end
-$var wire 1 J latchCnt[3]~output_o $end
-$var wire 1 K clrCnt[0]~output_o $end
-$var wire 1 L clrCnt[1]~output_o $end
-$var wire 1 M clrCnt[2]~output_o $end
-$var wire 1 N clrCnt[3]~output_o $end
-$var wire 1 O clk~input_o $end
-$var wire 1 P clk~inputclkctrl_outclk $end
-$var wire 1 Q pulse~input_o $end
-$var wire 1 R control~input_o $end
-$var wire 1 S flancterGen|setFlop~0_combout $end
-$var wire 1 T flancterGen|setFlop~q $end
-$var wire 1 U PulseCatcher:state.CLR~feeder_combout $end
-$var wire 1 V PulseCatcher:state.CLR~q $end
-$var wire 1 W Selector0~0_combout $end
-$var wire 1 X clear~q $end
-$var wire 1 Y flancterGen|clrFlop~0_combout $end
-$var wire 1 Z flancterGen|clrFlop~q $end
-$var wire 1 [ flancterGen|flagSync~0_combout $end
-$var wire 1 \ flancterGen|flagSync~q $end
-$var wire 1 ] Selector1~0_combout $end
-$var wire 1 ^ PulseCatcher:state.IDLE~q $end
-$var wire 1 _ state~3_combout $end
-$var wire 1 ` PulseCatcher:state.LATCH~q $end
-$var wire 1 a PulseCatcher:count[0]~0_combout $end
-$var wire 1 b PulseCatcher:count[0]~q $end
-$var wire 1 c PulseCatcher:count[1]~0_combout $end
-$var wire 1 d PulseCatcher:count[1]~q $end
-$var wire 1 e PulseCatcher:count[2]~0_combout $end
-$var wire 1 f PulseCatcher:count[2]~q $end
-$var wire 1 g PulseCatcher:count[3]~0_combout $end
-$var wire 1 h PulseCatcher:count[3]~1_combout $end
-$var wire 1 i PulseCatcher:count[3]~q $end
-$var wire 1 j PulseCatcher:idlecount[0]~0_combout $end
-$var wire 1 k PulseCatcher:idlecount[0]~q $end
-$var wire 1 l PulseCatcher:idlecount[1]~0_combout $end
-$var wire 1 m PulseCatcher:idlecount[1]~q $end
-$var wire 1 n PulseCatcher:idlecount[2]~0_combout $end
-$var wire 1 o PulseCatcher:idlecount[2]~q $end
-$var wire 1 p PulseCatcher:idlecount[3]~0_combout $end
-$var wire 1 q PulseCatcher:idlecount[3]~1_combout $end
-$var wire 1 r PulseCatcher:idlecount[3]~q $end
-$var wire 1 s PulseCatcher:clrcount[0]~0_combout $end
-$var wire 1 t PulseCatcher:clrcount[0]~q $end
-$var wire 1 u PulseCatcher:clrcount[1]~0_combout $end
-$var wire 1 v PulseCatcher:clrcount[1]~q $end
-$var wire 1 w PulseCatcher:clrcount[2]~0_combout $end
-$var wire 1 x PulseCatcher:clrcount[2]~q $end
-$var wire 1 y PulseCatcher:clrcount[3]~0_combout $end
-$var wire 1 z PulseCatcher:clrcount[3]~1_combout $end
-$var wire 1 { PulseCatcher:clrcount[3]~q $end
+$var wire 1 ; gnd $end
+$var wire 1 < vcc $end
+$var wire 1 = unknown $end
+$var tri1 1 > devclrn $end
+$var tri1 1 ? devpor $end
+$var tri1 1 @ devoe $end
+$var wire 1 A cnt[0]~output_o $end
+$var wire 1 B cnt[1]~output_o $end
+$var wire 1 C cnt[2]~output_o $end
+$var wire 1 D cnt[3]~output_o $end
+$var wire 1 E pulseFOut~output_o $end
+$var wire 1 F clearOut~output_o $end
+$var wire 1 G idleCnt[0]~output_o $end
+$var wire 1 H idleCnt[1]~output_o $end
+$var wire 1 I idleCnt[2]~output_o $end
+$var wire 1 J idleCnt[3]~output_o $end
+$var wire 1 K captureCnt[0]~output_o $end
+$var wire 1 L captureCnt[1]~output_o $end
+$var wire 1 M captureCnt[2]~output_o $end
+$var wire 1 N captureCnt[3]~output_o $end
+$var wire 1 O latchCnt[0]~output_o $end
+$var wire 1 P latchCnt[1]~output_o $end
+$var wire 1 Q latchCnt[2]~output_o $end
+$var wire 1 R latchCnt[3]~output_o $end
+$var wire 1 S clrCnt[0]~output_o $end
+$var wire 1 T clrCnt[1]~output_o $end
+$var wire 1 U clrCnt[2]~output_o $end
+$var wire 1 V clrCnt[3]~output_o $end
+$var wire 1 W clk~input_o $end
+$var wire 1 X clk~inputclkctrl_outclk $end
+$var wire 1 Y control~input_o $end
+$var wire 1 Z PulseCatcher:state.CLR~q $end
+$var wire 1 [ pulse~input_o $end
+$var wire 1 \ Selector0~0_combout $end
+$var wire 1 ] clear~q $end
+$var wire 1 ^ flancterGen|clrFlop~0_combout $end
+$var wire 1 _ flancterGen|clrFlop~q $end
+$var wire 1 ` flancterGen|setFlop~0_combout $end
+$var wire 1 a flancterGen|setFlop~q $end
+$var wire 1 b flancterGen|flagSync~0_combout $end
+$var wire 1 c flancterGen|flagSync~q $end
+$var wire 1 d PulseCatcher:state.IDLE~0_combout $end
+$var wire 1 e PulseCatcher:state.IDLE~1_combout $end
+$var wire 1 f PulseCatcher:state.IDLE~q $end
+$var wire 1 g Selector2~0_combout $end
+$var wire 1 h PulseCatcher:state.CAPTURE~q $end
+$var wire 1 i Selector3~0_combout $end
+$var wire 1 j PulseCatcher:state.LATCH~q $end
+$var wire 1 k PulseCatcher:count[0]~0_combout $end
+$var wire 1 l PulseCatcher:count[0]~q $end
+$var wire 1 m PulseCatcher:count[1]~0_combout $end
+$var wire 1 n PulseCatcher:count[1]~q $end
+$var wire 1 o PulseCatcher:count[2]~0_combout $end
+$var wire 1 p PulseCatcher:count[2]~q $end
+$var wire 1 q PulseCatcher:count[3]~0_combout $end
+$var wire 1 r PulseCatcher:count[3]~1_combout $end
+$var wire 1 s PulseCatcher:count[3]~q $end
+$var wire 1 t PulseCatcher:idlecount[0]~0_combout $end
+$var wire 1 u PulseCatcher:idlecount[0]~q $end
+$var wire 1 v PulseCatcher:idlecount[1]~0_combout $end
+$var wire 1 w PulseCatcher:idlecount[1]~q $end
+$var wire 1 x PulseCatcher:idlecount[2]~0_combout $end
+$var wire 1 y PulseCatcher:idlecount[2]~q $end
+$var wire 1 z PulseCatcher:idlecount[3]~0_combout $end
+$var wire 1 { PulseCatcher:idlecount[3]~1_combout $end
+$var wire 1 | PulseCatcher:idlecount[3]~q $end
+$var wire 1 } PulseCatcher:capturecount[0]~0_combout $end
+$var wire 1 ~ PulseCatcher:capturecount[0]~q $end
+$var wire 1 !! PulseCatcher:capturecount[1]~0_combout $end
+$var wire 1 "! PulseCatcher:capturecount[1]~q $end
+$var wire 1 #! PulseCatcher:capturecount[2]~0_combout $end
+$var wire 1 $! PulseCatcher:capturecount[2]~q $end
+$var wire 1 %! PulseCatcher:capturecount[3]~0_combout $end
+$var wire 1 &! PulseCatcher:capturecount[3]~1_combout $end
+$var wire 1 '! PulseCatcher:capturecount[3]~q $end
+$var wire 1 (! PulseCatcher:clrcount[0]~0_combout $end
+$var wire 1 )! PulseCatcher:clrcount[0]~q $end
+$var wire 1 *! PulseCatcher:clrcount[1]~0_combout $end
+$var wire 1 +! PulseCatcher:clrcount[1]~q $end
+$var wire 1 ,! PulseCatcher:clrcount[2]~0_combout $end
+$var wire 1 -! PulseCatcher:clrcount[2]~q $end
+$var wire 1 .! PulseCatcher:clrcount[3]~0_combout $end
+$var wire 1 /! PulseCatcher:clrcount[3]~1_combout $end
+$var wire 1 0! PulseCatcher:clrcount[3]~q $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
@@ -112,11 +131,11 @@ $dumpvars
 0!
 1"
 0#
-0$
-0(
 0'
 0&
 0%
+0$
+0(
 0,
 0+
 0*
@@ -129,18 +148,18 @@ $dumpvars
 03
 02
 01
-05
-x6
+08
 07
-18
-x9
-1:
-1;
+06
+05
+09
+x:
+0;
 1<
-0=
-0>
-0?
-0@
+x=
+1>
+1?
+1@
 0A
 0B
 0C
@@ -158,31 +177,31 @@ x9
 0O
 0P
 0Q
-1R
-1S
+0R
+0S
 0T
 0U
 0V
 0W
 0X
-0Y
+1Y
 0Z
 0[
 0\
 0]
 0^
 0_
-0`
+1`
 0a
 0b
 0c
-0d
-0e
+1d
+1e
 0f
-0g
+1g
 0h
 0i
-1j
+0j
 0k
 0l
 0m
@@ -192,226 +211,400 @@ x9
 0q
 0r
 0s
-0t
+1t
 0u
 0v
 0w
 0x
-1y
+0y
 0z
 0{
+0|
+0}
+0~
+0!!
+0"!
+0#!
+0$!
+0%!
+0&!
+0'!
+0(!
+0)!
+0*!
+0+!
+0,!
+0-!
+0.!
+0/!
+00!
 $end
 #10000
 1!
-1O
-1P
-06
-1k
-1l
-0j
-1C
-10
-#12000
-1#
-1Q
-16
-1T
-1[
-#13000
-0#
-0Q
-06
+1W
+1X
+0:
+1h
+1f
+1u
+1}
+1G
+14
 #15000
 0!
-0O
-0P
-16
+0W
+0X
+1:
 #20000
 1!
-1O
-1P
-06
-1m
-0k
-1\
-1j
-1_
-1]
-1D
-0C
-1A
-1/
-00
-15
+1W
+1X
+0:
+1~
+1!!
+0}
+1K
+1'
 #25000
 0!
-0O
-0P
-16
+0W
+0X
+1:
 #30000
 1!
-1O
-1P
-06
-1`
-1^
-1k
-1a
-1U
-0_
-1C
-10
-#35000
-0!
-0O
-0P
-16
-#40000
-1!
-1O
-1P
-06
-0`
-1V
-1b
 1W
-0U
-1s
-0]
-1G
-1=
-14
-1,
-#45000
-0!
-0O
-0P
-16
-#50000
-1!
-1O
-1P
-06
-0^
-0V
-1t
 1X
-1n
-0l
-0j
-1_
-1]
-0W
-0[
-1Y
-1K
-1B
-1(
-1$
-#55000
-0!
-0O
-0P
-16
-#60000
-1!
-1O
-1P
-06
-1`
-1^
-1Z
-1o
-0m
-0k
-0\
-0X
-1c
-0a
-1U
-0_
-0S
-1E
-0D
-0C
-0A
-0B
-1.
-0/
-00
-05
-0$
-#65000
-0!
-0O
-0P
-16
-#70000
-1!
-1O
-1P
-06
-0`
-1V
-1d
-0b
-1W
-0U
-1u
-0s
-0]
-1H
-1>
-0G
-0=
-13
-1+
-04
-0,
-#75000
-0!
-0O
-0P
-16
-#80000
-1!
-1O
-1P
-06
-0^
-0V
-1v
-0t
-1X
-1j
-0W
+0:
+1"!
+0~
+1}
 1L
 0K
-1B
+1&
+0'
+#35000
+0!
+0W
+0X
+1:
+#36000
+1#
+1[
+0:
+1a
+1b
+#38000
+0#
+0[
+1:
+#40000
+1!
+1W
+1X
+0:
+1~
+1c
+1#!
+0!!
+0}
+1i
+0g
+1K
+1E
 1'
+19
+#45000
+0!
+0W
+0X
+1:
+#50000
+1!
+1W
+1X
+0:
+1j
+0h
+1$!
+0"!
+0~
+1k
+0i
+1M
+0L
+0K
+1%
+0&
+0'
+#55000
+0!
+0W
+0X
+1:
+#60000
+1!
+1W
+1X
+0:
+0j
+1Z
+1l
+0e
+1\
+1(!
+1O
+1A
+18
+10
+#65000
+0!
+0W
+0X
+1:
+#70000
+1!
+1W
+1X
+0:
+0f
+0Z
+1)!
+1]
+1v
+0t
+1g
+1e
+0\
+0b
+1^
+1S
+1F
+1,
+1(
+#75000
+0!
+0W
+0X
+1:
+#80000
+1!
+1W
+1X
+0:
+1h
+1f
+1_
+1w
+0u
+0c
+0]
+1}
+0`
+1H
+0G
+0E
+0F
+13
+04
+09
 0(
-1$
 #85000
 0!
-0O
-0P
-16
+0W
+0X
+1:
 #90000
 1!
-1O
-1P
-06
-1k
-0X
-1l
-0j
-1C
-0B
-10
-0$
+1W
+1X
+0:
+1~
+1!!
+0}
+1K
+1'
 #95000
 0!
-0O
-0P
-16
+0W
+0X
+1:
 #100000
+1!
+1W
+1X
+0:
+1"!
+0~
+1}
+1L
+0K
+1&
+0'
+#105000
+0!
+0W
+0X
+1:
+#110000
+1!
+1W
+1X
+0:
+1~
+1%!
+0#!
+0!!
+0}
+1K
+1'
+1&!
+#115000
+0!
+0W
+0X
+1:
+#120000
+1!
+1W
+1X
+0:
+1'!
+0$!
+0"!
+0~
+0&!
+0%!
+1}
+1N
+0M
+0L
+0K
+1$
+0%
+0&
+0'
+1&!
+#125000
+0!
+0W
+0X
+1:
+#130000
+1!
+1W
+1X
+0:
+1~
+1!!
+0}
+1K
+1'
+#135000
+0!
+0W
+0X
+1:
+#140000
+1!
+1W
+1X
+0:
+1"!
+0~
+1}
+1L
+0K
+1&
+0'
+#145000
+0!
+0W
+0X
+1:
+#150000
+1!
+1W
+1X
+0:
+1~
+1#!
+0!!
+0}
+1K
+1'
+#155000
+0!
+0W
+0X
+1:
+#160000
+1!
+1W
+1X
+0:
+1$!
+0"!
+0~
+1}
+1M
+0L
+0K
+1%
+0&
+0'
+#165000
+0!
+0W
+0X
+1:
+#170000
+1!
+1W
+1X
+0:
+1~
+1!!
+0}
+1K
+1'
+#175000
+0!
+0W
+0X
+1:
+#180000
+1!
+1W
+1X
+0:
+1"!
+0~
+1}
+1L
+0K
+1&
+0'
+#185000
+0!
+0W
+0X
+1:
+#190000
+1!
+1W
+1X
+0:
+1~
+1%!
+0#!
+0!!
+0}
+1K
+1'
+0&!
+#195000
+0!
+0W
+0X
+1:
+#200000

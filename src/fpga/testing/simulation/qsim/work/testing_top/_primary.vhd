@@ -9,6 +9,7 @@ entity testing_top is
         pulseFOut       : out    vl_logic;
         clearOut        : out    vl_logic;
         idleCnt         : out    vl_logic_vector(3 downto 0);
+        captureCnt      : out    vl_logic_vector(3 downto 0);
         latchCnt        : out    vl_logic_vector(3 downto 0);
         clrCnt          : out    vl_logic_vector(3 downto 0)
     );
